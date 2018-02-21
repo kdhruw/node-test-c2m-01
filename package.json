@@ -1,0 +1,22 @@
+{
+  "name": "trion",
+  "version": "1.0.0",
+  "description": "Testing some backend for c2m thingy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "c2m",
+    "node",
+    "mongo"
+  ],
+  "author": "Kaushal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.6"
+  }
+}
