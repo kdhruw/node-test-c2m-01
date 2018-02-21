@@ -26,7 +26,7 @@ exports.addRestaurant = function(req,res){
     var updated = req.body.updated;
     var established = req.body.established;
     var rating = req.body.rating;
-    console.log("Restaurant name: " + name);
+    console.log("Restaurant name: " + req.body.name);
  
     var newRestaurant = new Restaurant();
     newRestaurant.name = name;
@@ -43,12 +43,12 @@ exports.addRestaurant = function(req,res){
     newRestaurant.established = established;
     newRestaurant.rating = rating;
  
-    newRestaurant.save(function(err,savedStory){
+    newRestaurant.save(function(err,msg){
         if(err){
-          console.log("Error : While saving the new restaurant");
-          return res.status(500).send();
+            console.log("Error : While saving the new restaurant");
+            res.status(500).send('<h1>Error : While saving the new restaurant</h1>');
         }else{
-          res.json(newRestaurant);
+            res.json(newRestaurant);
         }
     });
  }
@@ -58,7 +58,7 @@ exports.addRestaurant = function(req,res){
     Restaurant.findOne({slug:requestedSlug}, function(err,restaurant){
         if(err){
             console.log("Error : While searching the restaurant - " + requestedSlug);
-            return res.status(404).send();
+            res.status(404).send();
           }else{
             res.json(restaurant);
           }
@@ -66,11 +66,13 @@ exports.addRestaurant = function(req,res){
  }
 
  exports.getRestaurantsByCity = function(req,res){
-    var city = req.params.city;
-    Restaurant.find({city:city}, function(err,restaurants){
+    var city = req.params.city.toLowerCase();
+    var newCity = city.replace(/[^a-zA-Z0-9 ]/g, "");
+    var cityWithHyphen = newCity.replace(/\s+/g, '-');
+    Restaurant.find({city:cityWithHyphen}, function(err,restaurants){
         if(err){
             console.log("Error : While searching for restaurants");
-            return res.status(404).send();
+            res.status(404).send();
           }else{
             res.json(restaurants);
           }
@@ -96,5 +98,5 @@ exports.addRestaurant = function(req,res){
             }
         });
  
-         });
+    });
   }

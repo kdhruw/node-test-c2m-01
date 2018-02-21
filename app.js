@@ -1,7 +1,6 @@
 var chalk = require('chalk');
 var express = require('express');
 var mongoose = require('mongoose');
-var bodyParser=require('body-parser');
 
 var app = express();
 var db = require('./models/db.js');
@@ -11,8 +10,8 @@ var restaurant = require('./routes/restaurant.js');
 app.set('view engine','ejs');
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
 app.get('/', routes.index);
 

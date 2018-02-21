@@ -55,9 +55,14 @@ restaurantSchema.pre('save', function(next) {
 
     var lowercaseName = restaurant.name.toLowerCase();
     var slug = lowercaseName.replace(/[^a-zA-Z0-9 ]/g, "");
-    var addingHyphen = slug.replace(/\s+/g, '-');
+    var nameWithHyphen = slug.replace(/\s+/g, '-');
+    restaurant.slug = nameWithHyphen;
 
-    restaurant.slug = addingHyphen;
+    var city = restaurant.city.toLowerCase();
+    var newCity = city.replace(/[^a-zA-Z0-9 ]/g, "");
+    var cityWithHyphen = newCity.replace(/\s+/g, '-');
+    restaurant.city = cityWithHyphen;
+
     next();
 });
 
