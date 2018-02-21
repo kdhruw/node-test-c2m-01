@@ -44,28 +44,28 @@ exports.addRestaurant = function(req,res){
     newRestaurant.rating = rating;
  
     newRestaurant.save(function(err,msg){
-        if(err){
+        if (err) {
             console.log("Error : While saving the new restaurant");
             res.status(500).send('<h1>Error : While saving the new restaurant</h1>');
         }else{
             res.json(newRestaurant);
         }
     });
- }
+}
 
- exports.getRestaurant = function(req,res){
+exports.getRestaurant = function(req,res){
     var requestedSlug = req.params.slug;
     Restaurant.findOne({slug:requestedSlug}, function(err,restaurant){
-        if(err){
+        if (err) {
             console.log("Error : While searching the restaurant - " + requestedSlug);
             res.status(404).send();
-          }else{
+        } else {
             res.json(restaurant);
-          }
+        }
     });
- }
+}
 
- exports.getRestaurantsByCity = function(req,res){
+exports.getRestaurantsByCity = function(req,res){
     var city = req.params.city.toLowerCase();
     var newCity = city.replace(/[^a-zA-Z0-9 ]/g, "");
     var cityWithHyphen = newCity.replace(/\s+/g, '-');
@@ -73,13 +73,14 @@ exports.addRestaurant = function(req,res){
         if(err){
             console.log("Error : While searching for restaurants");
             res.status(404).send();
-          }else{
+        } else {
             res.json(restaurants);
-          }
+        }
     });
- }
+}
 
- exports.saveComment=function(req,res){
+
+exports.saveComment=function(req,res){
     var restaurant_slug = req.body.slug;
     var comment = req.body.comment;
     var commented_by = req.body.commented_by;
@@ -88,7 +89,7 @@ exports.addRestaurant = function(req,res){
     Restaurant.findOne({slug:restaurant_slug}, function(err,restaurant){
  
         restaurant.comments.push({comment:comment,commented_by:commented_by,date:posted_date});
- 
+
         restaurant.save(function(err,savedStory){
             if(err){
                 console.log("Error : While saving comment for - " + restaurant_slug);
@@ -99,4 +100,4 @@ exports.addRestaurant = function(req,res){
         });
  
     });
-  }
+}
