@@ -13,14 +13,16 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 
-app.get('/', routes.index);
+app.get('/', routes.index2);
 
 app.get('/restaurants', restaurant.allRestaurants);
 
 app.get('/restaurant/:slug', restaurant.getRestaurant);
+app.get('/remove-restaurant/:slug', restaurant.getRestaurant);
 app.get('/restaurants/:city', restaurant.getRestaurantsByCity);
 
 app.post('/new-restaurant', restaurant.addRestaurant);
+app.post('/update-restaurant/:restaurant_slug', restaurant.updateRestaurant);
 app.post('/new-comment', restaurant.saveComment);
 
 

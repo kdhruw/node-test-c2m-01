@@ -65,12 +65,69 @@ exports.getRestaurant = function(req,res){
     });
 }
 
+exports.updateRestaurant = function(req,res) {
+
+    var restaurantSlug = req.params.restaurant_slug;
+
+    var name = req.body.name;
+    var email = req.body.email;
+    var tagline = req.body.tagline;
+    var pic = req.body.pic;
+    var cuisine = req.body.cuisine;
+    var address = req.body.address;
+    var longitude = req.body.longitude;
+    var latitude = req.body.latitude;
+    var city = req.body.city;
+    var country = req.body.country;
+    var hasBranches = req.body.hasBranches;
+    var updated = req.body.updated;
+    var established = req.body.established;
+    var rating = req.body.rating;
+    console.log("Restaurant name: " + req.body.name);
+ 
+    var updatedRestaurant = {};
+    updatedRestaurant.name = name;
+    updatedRestaurant.email = email;
+    updatedRestaurant.pic = pic;
+    updatedRestaurant.cuisine = cuisine;
+    updatedRestaurant.address = address;
+    updatedRestaurant.longitude = longitude;
+    updatedRestaurant.latitude = latitude;
+    updatedRestaurant.city = city;
+    updatedRestaurant.country = country;
+    updatedRestaurant.hasBranches = hasBranches;
+    updatedRestaurant.updated = updated;
+    updatedRestaurant.established = established;
+    updatedRestaurant.rating = rating;
+
+    Restaurant.findOneAndUpdate({slug:requestedSlug}, updatedRestaurant, { upsert: true, new: true }, function(err, data){
+        if (err) {
+            console.log("Error : While updating restaurant - " + restaurantSlug);
+            res.status(404).send();
+        } else {
+            res.json(data);
+        }
+    });
+}
+
+exports.deleteRestaurant = function(req,res) {
+    var restaurantSlug = req.params.slug;
+    Restaurant.findOneAndRemove({slug:restaurantSlug}, function(err,data){
+        if (err) {
+            console.log("Error : While removing restaurant - " + restaurantSlug);
+            res.status(404).send();
+        } else {
+            res.json(data);
+        }
+    });
+}
+
 exports.getRestaurantsByCity = function(req,res){
     var city = req.params.city.toLowerCase();
     var newCity = city.replace(/[^a-zA-Z0-9 ]/g, "");
     var cityWithHyphen = newCity.replace(/\s+/g, '-');
     Restaurant.find({city:cityWithHyphen}, function(err,restaurants){
-        if(err){
+        if (err) {
             console.log("Error : While searching for restaurants");
             res.status(404).send();
         } else {
@@ -80,8 +137,8 @@ exports.getRestaurantsByCity = function(req,res){
 }
 
 
-exports.saveComment=function(req,res){
-    var restaurant_slug = req.body.slug;
+exports.saveComment = function(req,res){
+    var restaurant_slug = req.body.restaurant_slug;
     var comment = req.body.comment;
     var commented_by = req.body.commented_by;
     var posted_date = new Date();
