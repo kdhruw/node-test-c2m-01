@@ -2,15 +2,206 @@
 <html lang="en">
 
 <head>
-    <title>C2M Data entry</title>
+    <title>C2M Tester</title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 </head>
 
 <body>
-    <h1>Populate your db</h1>>
+    <div>
+        <h1>Populate your db</h1>>
+
+    </div>
+</body>
+
+</html>
+
+
+<html>
+
+<head>
+    <title>C2M Tester - Restaurant finder</title>
+    <meta name="viewport" content="width=device-width,
+	                 height=device-height, user-scalable=yes">
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        tbody {
+            text-align: center;
+        }
+        
+        .btn_install {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body style="text-align: center;">
+    <script>
+        function installApp(appversion) {
+            document.location = appURLs[appversion];
+        }
+
+        function installDiscoverApp(appversion) {
+            document.location = discover_appURLs[appversion];
+        }
+    </script>
+
+    <h1>C2M Tester</h1>
+
+    <table cellpadding="10">
+        <thead>
+            <th> Note </th>
+            <th> Action</th>
+        </thead>
+        <tbody>
+			<tr>
+                <td> This will populate data in your databse</td>
+                <td></td>
+                <td>
+                    <button onclick="populateData();" class="btn_install"> Install </button>
+                </td>
+            </tr>
+		
+			<tr>
+                <td> Get all the restaurants</td>
+                <td>
+                    <input type="text" name="slug" value="restaurant slug">
+                </td>
+                <td>
+                    <button onclick="getRestaurant(''"+slug.value+"'');" class="btn_install"> Install </button>
+                </td>
+            </tr>
+		
+			<tr>
+                <td> v1.6 </td>
+                <td> 1, Feb, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installDiscoverApp('1.6');" class="btn_install"> Install </button>
+                </td>
+            </tr>
+		
+		<!--	<tr>
+                <td> v1.5.1 </td>
+                <td> 31, Jan, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installDiscoverApp('1.5.1');" class="btn_install"> Install </button>
+                </td>
+            </tr>
+			
+            <tr>
+                <td> v1.5 </td>
+                <td> 25, Jan, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installDiscoverApp('1.5');" class="btn_install"> Install </button>
+                </td>
+            </tr>  -->
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <h3>Android 4.4+</h3>
+    <table cellpadding="10">
+        <thead>
+            <th> Version </th>
+            <th> Release Date </th>
+            <th> Note </th>
+            <th></th>
+        </thead>
+        <tbody>
+		
+			<tr>
+                <td> v1.3.0 </td>
+                <td> 22, Feb, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="location.href='apks/DiscoverV1.3.apk';" class="btn_install"> Download </button>
+                </td>
+            </tr>
+		
+			<tr>
+                <td> v1.2.0 </td>
+                <td> 16, Feb, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="location.href='apks/DiscoverV1.2.apk';" class="btn_install"> Download </button>
+                </td>
+            </tr>
+			
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <h1>CoolBank App</h1>
+    <h3>Requires iOS 9.0 or later</h3>
+
+    <table cellpadding="10">
+        <thead>
+            <th> Version </th>
+            <th> Release Date </th>
+            <th> Note </th>
+            <th></th>
+        </thead>
+        <tbody>
+		
+			<tr>
+                <td> v2.11 </td>
+                <td> 2, Feb, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installApp('2.11');" class="btn_install"> Install </button>
+                </td>
+            </tr>
+		
+			<tr>
+                <td> v2.10 </td>
+                <td> 1, Feb, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installApp('2.10');" class="btn_install"> Install </button>
+                </td>
+            </tr>
+			
+		<!--	<tr>
+                <td> v2.9 </td>
+                <td> 31, January, 2018 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installApp('2.9');" class="btn_install"> Install </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td> v2.8a </td>
+                <td> 11, December, 2017 </td>
+                <td> Dev & Demo </td>
+                <td>
+                    <button onclick="installApp('2.8a');" class="btn_install"> Install </button>
+                </td>
+            </tr> -->
+			
+        </tbody>
+    </table>
+
+    <br>
+
 </body>
 
 </html>
