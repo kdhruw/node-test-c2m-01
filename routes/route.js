@@ -1,8 +1,9 @@
 exports.index = function(req, res) {
     //res.send('<h1>Welcome to this page</h1>');
-    res.render('index', {});
+    res.render('home', {});
 };
 
-// exports.index2 = function(req,res){
-//     res.render('index',{});
-// }
+exports.swagger = function(req,res){
+    console.log("loading swagger ui");
+    res.render('index',{});
+};

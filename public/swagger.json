@@ -13,7 +13,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "localhost",
+    "host": "c2m-resto-finder.herokuapp.com",
     "basePath": "/",
     "tags": [{
             "name": "restaurants",
@@ -28,12 +28,16 @@
             "description": "Comments and related stuff"
         },
         {
+            "name": "bulk operations",
+            "description": "Bulk operations"
+        },
+        {
             "name": "users",
             "description": "under construction - operations related to users"
         }
     ],
     "schemes": [
-        "http"
+        "https"
     ],
     "paths": {
         "/new-restaurant": {
@@ -73,6 +77,51 @@
                         "description": "successful operation",
                         "schema": {
                             "$ref": "#/definitions/Restaurant"
+                        }
+                    }
+                }
+            }
+        },
+        "/bulk-add":{
+            "post": {
+                "tags": [
+                    "bulk operations"
+                ],
+                "summary": "Insert many restaurants at once",
+                "description": "Add many restaurants",
+                "operationId": "bulkAdd",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Array of restaurants",
+                    "required": true,
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/Restaurant"
+                        }
+                    }
+                }],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    },
+                    "500": {
+                        "description": "Interna; server error"
+                    },
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Restaurant"
+                            }
                         }
                     }
                 }
@@ -165,6 +214,41 @@
                             "$ref": "#/definitions/Restaurant"
                         }
                     },
+                    "404": {
+                        "description": "Restaurant not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete":{
+                "tags": [
+                    "restaurants"
+                ],
+                "summary": "Deletes a restaurant",
+                "description": "Deletes a restaurant and returns the deleted restaurant",
+                "operationId": "deleteRestaurantsBySlug",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "slug",
+                    "in": "path",
+                    "description": "Restaurant's unique slug",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Restaurant"
+                        }
+                    },
+                    "404": {
+                        "description": "Restaurant not found"
+                    },
                     "500": {
                         "description": "Internal server error"
                     }
@@ -188,6 +272,14 @@
                     "description": "Slug of the restaurant to be updated",
                     "required": true,
                     "type": "string"
+                }, {
+                    "in": "body",
+                    "name": "body",
+                    "description": "Restaurant that needs to be added to the list",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Restaurant"
+                    }
                 }],
                 "responses": {
                     "200": {
@@ -226,6 +318,15 @@
                     }
                 }],
                 "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Restaurant not found"
+                    },
+                    "500": {
+                        "description": "Interna; server error"
+                    },
                     "200": {
                         "description": "successful operation",
                         "schema": {
@@ -312,6 +413,10 @@
                     "type": "string",
                     "example": "https://punefoodhunt.files.wordpress.com/2017/10/img_20171007_105450-e1509002011194.jpg"
                 },
+                "cuisine":{
+                    "type": "string",
+                    "example": "Mexican, Japanese, Seafood"
+                },
                 "address": {
                     "type": "string",
                     "example": "221B baker street, Paris"
@@ -350,6 +455,12 @@
                     "type": "integer",
                     "format": "int32",
                     "example": "3"
+                },
+                "comments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Comment"
+                    }
                 }
             }
         },
@@ -368,7 +479,7 @@
                 },
                 "body": {
                     "type": "string",
-                    "example": "Awesome vegan choices"
+                    "example": "exemplary vegan choices"
                 },
                 "commented_by": {
                     "type": "string",

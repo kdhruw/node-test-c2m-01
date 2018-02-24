@@ -14,17 +14,16 @@ app.use(express.json()); // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 
 app.get('/', routes.index);
-app.get('/swagger', function(req, res) {
-    res.sendFile(__dirname + '/public/dist/index.html');
-});
+app.get('/swagger', routes.swagger);
 
 app.get('/restaurants', restaurant.allRestaurants);
 
 app.get('/restaurant/:slug', restaurant.getRestaurant);
-app.get('/remove-restaurant/:slug', restaurant.getRestaurant);
+app.delete('/restaurant/:slug', restaurant.deleteRestaurant);
 app.get('/restaurants/:city', restaurant.getRestaurantsByCity);
 
 app.post('/new-restaurant', restaurant.addRestaurant);
+app.post('/bulk-add', restaurant.bulkAdd);
 app.post('/update-restaurant/:restaurant_slug', restaurant.updateRestaurant);
 app.post('/new-comment', restaurant.saveComment);
 

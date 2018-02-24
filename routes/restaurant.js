@@ -100,7 +100,7 @@ exports.updateRestaurant = function(req,res) {
     updatedRestaurant.established = established;
     updatedRestaurant.rating = rating;
 
-    Restaurant.findOneAndUpdate({slug:requestedSlug}, updatedRestaurant, { upsert: true, new: true }, function(err, data){
+    Restaurant.findOneAndUpdate({slug:restaurantSlug}, updatedRestaurant, { upsert: true, new: true }, function(err, data){
         if (err) {
             console.log("Error : While updating restaurant - " + restaurantSlug);
             res.status(404).send();
@@ -136,25 +136,48 @@ exports.getRestaurantsByCity = function(req,res){
     });
 }
 
+exports.bulkAdd = function(req, res){
+    var restaurants = req.body;
+    Restaurant.collection.insertMany(restaurants, {ordered: false}, function(err, data){
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(data);
+        }
+    });
+    
+    // .then(function(data){
+    //     console.log("bulk Promise success - " + data);
+    // }).catch(function(reason) {
+    //     console.log('bulk Promise rejected - ' + reason);
+    //     res.status(500).send();
+    // });
+
+}
 
 exports.saveComment = function(req,res){
     var restaurant_slug = req.body.restaurant_slug;
-    var comment = req.body.comment;
+    var body = req.body.body;
     var commented_by = req.body.commented_by;
     var posted_date = new Date();
  
     Restaurant.findOne({slug:restaurant_slug}, function(err,restaurant){
  
-        restaurant.comments.push({comment:comment,commented_by:commented_by,date:posted_date});
+        if (restaurant) {
+            restaurant.comments.push({body:body,commented_by:commented_by,date:posted_date});
 
-        restaurant.save(function(err,savedStory){
-            if(err){
-                console.log("Error : While saving comment for - " + restaurant_slug);
-                return res.status(500).send();
-            }else{
-                res.status(200).send();
-            }
-        });
- 
+            restaurant.save(function(err,data){
+                if(err){
+                    console.log("Error : While saving comment for - " + restaurant_slug);
+                    return res.status(500).send();
+                }else{
+                    console.log("comment saved - " + data);
+                    res.status(200).send();
+                }
+            });
+        } else {
+            console.log("Restaurant not found - " + restaurant_slug);
+            return res.status(404).send();
+        }
     });
 }
