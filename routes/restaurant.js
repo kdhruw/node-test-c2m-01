@@ -59,8 +59,10 @@ exports.getRestaurant = function(req,res){
         if (err) {
             console.log("Error : While searching the restaurant - " + requestedSlug);
             res.status(404).send();
-        } else {
+        } else if (restaurant) {
             res.json(restaurant);
+        } else {
+            res.status(404).send("Restaurant not found - " + requestedSlug);
         }
     });
 }
@@ -116,8 +118,10 @@ exports.deleteRestaurant = function(req,res) {
         if (err) {
             console.log("Error : While removing restaurant - " + restaurantSlug);
             res.status(404).send();
-        } else {
+        } else if (data) {
             res.json(data);
+        } else {
+            res.status(404).send("Restaurant not found - " + restaurantSlug);
         }
     });
 }
@@ -130,8 +134,10 @@ exports.getRestaurantsByCity = function(req,res){
         if (err) {
             console.log("Error : While searching for restaurants");
             res.status(404).send();
-        } else {
+        } else if(restaurants) {
             res.json(restaurants);
+        } else {
+            res.status(404).send("");
         }
     });
 }
