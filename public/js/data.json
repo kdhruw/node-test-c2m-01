@@ -6,14 +6,16 @@
         "pic": "https://b.zmtcdn.com/data/res_imagery/16771079_RESTAURANT_da60c9abb32fa64cddc148a2795ae43c_c.jpg",
         "cuisine": "Pizza, Italian",
         "address": "32 Spring Street, New York 10012",
-        "city": "New York City",
+        "city": "new-york-city",
+        "comments": [],
         "country": "USA",
         "latitude": "40.7216750000",
         "longitude": "-73.9955888889",
         "hasBranches": false,
         "updated": "29-Jan-2018",
         "established": 1913,
-        "rating": 4
+        "rating": 4,
+        "slug": "lombardis-pizza"
     },
     {
         "name": "Café Habana",
@@ -22,14 +24,16 @@
         "pic": "https://b.zmtcdn.com/data/res_imagery/16761927_RESTAURANT_1e1f5ff368dae2c54f3cb2c34d490781_c.jpg",
         "cuisine": "Cuban, Mexican",
         "address": "17 Prince Street, New York 10012",
-        "city": "New York City",
+        "city": "new-york-city",
+        "comments": [],
         "country": "USA",
         "latitude": "40.7229330000",
         "longitude": "-73.9941930000",
         "hasBranches": true,
         "updated": "12-feb-2018",
         "established": 1988,
-        "rating": 5
+        "rating": 5,
+        "slug": "cafe-habana"
     },
     {
         "name": "Barbeque Village",
@@ -38,14 +42,16 @@
         "pic": "https://b.zmtcdn.com/data/pictures/2/18591342/d04aed28b261ffaadd79311c4ccad573.jpg",
         "cuisine": "North Indian, Awadhi, BBQ",
         "address": "45, Sus -Parshan Bridge, Near Mahindra, Pune Mumbai -Bangalore Highway, Pashan, Pune",
-        "city": "Pune",
+        "city": "pune",
+        "comments": [],
         "country": "India",
         "latitude": "18.5492644924",
         "longitude": "73.7723769620",
         "hasBranches": false,
         "updated": "19-Jan-2018",
         "established": 2004,
-        "rating": 3
+        "rating": 3,
+        "slug": "barbeque-village"
     },
     {
         "name": "Rangla Punjab",
@@ -54,14 +60,16 @@
         "pic": "https://b.zmtcdn.com/data/pictures/7/11817/c57e2e745b9267761980e59b2b122523.jpg",
         "cuisine": "Seafood, Biryani, North Indian, Chinese, Kebab",
         "address": "Near Kumar Papillon, Bangalore  Mumbai Highway, Off Sus Pashan Road, Pashan, Pune",
-        "city": "Pune",
+        "city": "pune",
+        "comments": [],
         "country": "India",
         "latitude": "18.5425327484",
         "longitude": "73.7762252614",
         "hasBranches": true,
         "updated": "06-oct-2017",
         "established": 2012,
-        "rating": 4
+        "rating": 4,
+        "slug": "rangla-punjab"
     },
     {
         "name": "Ali's Trinidad Roti Shop",
@@ -69,14 +77,16 @@
         "tagline": "Diversity served in a bread",
         "cuisine": "Caribbean",
         "address": "1267 Fulton Street, Brooklyn 11216",
-        "city": "Brooklyn",
+        "city": "brooklyn",
+        "comments": [],
         "country": "USA",
         "latitude": "40.6803888889",
         "longitude": "-73.9506305556",
         "hasBranches": false,
         "updated": "21-Jan-2018",
         "established": 1990,
-        "rating": 5
+        "rating": 5,
+        "slug": "alis-trinidad-roti-shop"
     },
     {
         "name": "Halsey Street Grill",
@@ -85,14 +95,16 @@
         "pic": "http://1.bp.blogspot.com/-GS7Op8w_bBI/UjL-YymiFwI/AAAAAAAAK_w/P_1kUhX3O0U/s1600/IMG_1900.JPG",
         "cuisine": "Seafood, Southern",
         "address": "260 Halsey Street, New York 11216",
-        "city": "Brooklyn",
+        "city": "brooklyn",
+        "comments": [],
         "country": "USA",
         "latitude": "40.6824150000",
         "longitude": "-73.9432220000",
         "hasBranches": true,
         "updated": "26-nov-2017",
         "established": 2003,
-        "rating": 4
+        "rating": 4,
+        "slug": "halsey-street-grill"
     },
     {
         "name": "Palette 22",
@@ -101,14 +113,16 @@
         "pic": "http://dconheels.com/wp-content/uploads/2016/02/outside-resize.jpg",
         "cuisine": "American",
         "address": "4053 Campbell Avenue 22206",
-        "city": "Arlington County",
+        "city": "arlington-county",
+        "comments": [],
         "country": "USA",
         "latitude": "38.8411560000",
         "longitude": "-77.0885110000",
         "hasBranches": false,
         "updated": "13-May-2017",
         "established": 1986,
-        "rating": 5
+        "rating": 5,
+        "slug": "palette-22"
     },
     {
         "name": "Atlantis Pizzeria",
@@ -117,14 +131,16 @@
         "pic": "http://1.bp.blogspot.com/-GS7Op8w_bBI/UjL-YymiFwI/AAAAAAAAK_w/P_1kUhX3O0U/s1600/IMG_1900.JPG",
         "cuisine": "Greek, Italian, Pizza",
         "address": "23648 King Street, Alexandria 22302",
-        "city": "Alexandria",
+        "city": "alexandria",
+        "comments": [],
         "country": "USA",
         "latitude": "38.8294260000",
         "longitude": "-77.0913830000",
         "hasBranches": true,
         "updated": "22-feb-2018",
         "established": 2013,
-        "rating": 4
+        "rating": 4,
+        "slug": "atlantis-pizzeria"
     },
     {
         "name": "Kombi Rocks Diner",
@@ -133,14 +149,16 @@
         "pic": "https://www.shinyvisa.com/wp-content/uploads/2016/09/kombi-rocks-main-810x613.jpg",
         "cuisine": "Chinese, Seafood, Thai",
         "address": "Yio Chu Kang Road, #66, Serangoon 545568",
-        "city": "Singapore",
+        "city": "singapore",
+        "comments": [],
         "country": "Singapore",
         "latitude": "1.3574723027",
         "longitude": "103.8755176160",
         "hasBranches": false,
         "updated": "13-sept-2017",
         "established": 2007,
-        "rating": 2
+        "rating": 5,
+        "slug": "kombi-rocks-diner"
     },
     {
         "name": "The Coffee Daily",
@@ -149,14 +167,16 @@
         "pic": "http://1.bp.blogspot.com/-GS7Op8w_bBI/UjL-YymiFwI/AAAAAAAAK_w/P_1kUhX3O0U/s1600/IMG_1900.JPG",
         "cuisine": "Greek, Italian, Pizza",
         "address": "75 Brighton Crescent, Serangoon Garden Estate 559216",
-        "city": "Singapore",
+        "city": "singapore",
+        "comments": [],
         "country": "Singapore",
         "latitude": "1.3629670637",
         "longitude": "103.8712271610",
         "hasBranches": true,
         "updated": "28-feb-2018",
         "established": 2015,
-        "rating": 4
+        "rating": 4,
+        "slug": "the-coffee-daily"
     },
     {
         "name": "Graze Kitchen",
@@ -165,14 +185,16 @@
         "pic": "https://d3dz4rogqkqh6r.cloudfront.net/uploads/files/2016/11/yimg_KXQ1s2-640x427.jpg",
         "cuisine": "Sri Lankan, Indian, Japanese, Chinese",
         "address": "Hilton Colombo, 2, Sir Chittampalam A Gardiner Mawatha, Fort, Colombo 01",
-        "city": "Colombo",
+        "city": "colombo",
+        "comments": [],
         "country": "Sri Lanka",
         "latitude": "6.9319055556",
         "longitude": "79.8448944444",
         "hasBranches": true,
         "updated": "28-feb-2018",
         "established": 2010,
-        "rating": 4
+        "rating": 4,
+        "slug": "graze-kitchen"
     },
     {
         "name": "Cabaret",
@@ -181,13 +203,15 @@
         "pic": "https://img1.nbstatic.in/la-webp-l/59c3b0dec9e77c000b1997cf.jpg",
         "cuisine": "Cafe, Asian, Steak, Korean, Salad, North Indian, Biryani",
         "address": "Ground floor, Aspirations, Baner Road, Baner, Pune",
-        "city": "Pune",
+        "city": "pune",
+        "comments": [],
         "country": "India",
         "longitude": "18.5660205445",
         "latitude": "73.7728131562",
         "hasBranches": false,
         "updated": "19-Feb-2018",
         "established": 2017,
-        "rating": 4
+        "rating": 4,
+        "slug": "cabaret"
       }
 ]
