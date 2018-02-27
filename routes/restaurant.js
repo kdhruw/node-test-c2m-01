@@ -2,11 +2,14 @@ var mongoose = require('mongoose');
 var Restaurant = mongoose.model('Restaurant');
 
 exports.allRestaurants = function(req,res){
+    console.log("getting all restaurant");
     Restaurant.find({}, function(err, restaurants){
         if (err){
             res.json(err);
-        } else {
+        } else if(restaurants) {
             res.json(restaurants);
+        } else {
+            res.status(404).send();
         }
     });
 }
