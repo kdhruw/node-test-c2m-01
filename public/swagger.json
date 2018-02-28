@@ -13,7 +13,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "localhost:8080",
+    "host": "c2m-resto-finder.herokuapp.com",
     "basePath": "/",
     "tags": [{
             "name": "restaurants",
@@ -37,7 +37,7 @@
         }
     ],
     "schemes": [
-        "http"
+        "https"
     ],
     "paths": {
         "/new-restaurant": {
@@ -82,7 +82,7 @@
                 }
             }
         },
-        "/bulk-add":{
+        "/bulk-add": {
             "post": {
                 "tags": [
                     "bulk operations"
@@ -222,7 +222,7 @@
                     }
                 }
             },
-            "delete":{
+            "delete": {
                 "tags": [
                     "restaurants"
                 ],
@@ -413,7 +413,7 @@
                     "type": "string",
                     "example": "https://punefoodhunt.files.wordpress.com/2017/10/img_20171007_105450-e1509002011194.jpg"
                 },
-                "cuisine":{
+                "cuisine": {
                     "type": "string",
                     "example": "Mexican, Japanese, Seafood"
                 },
