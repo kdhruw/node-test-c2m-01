@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 
 //var dbURI = 'mongodb://localhost/testlo';
-var dbURI = 'mongodb://connector:connector@ds123658.mlab.com:23658/c2m001';
+var dbURI = 'mongodb://tester:tester@ds211309.mlab.com:11309/mytestdb';
 
 
 mongoose.connect(dbURI);
