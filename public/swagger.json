@@ -13,7 +13,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "c2m-resto-finder.herokuapp.com",
+    "host": "pmd-test-app.herokuapp.com",
     "basePath": "/",
     "tags": [{
             "name": "restaurants",
